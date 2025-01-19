@@ -38,16 +38,13 @@ SYSCALL_OBJ		:= asm/syscall.o
 
 $(info $(LCF))
 
+# needs to be updated to build rom
 all: $(ALL_OBJS) $(NEF) $(LCF)
-#$(MWAS) $(MWASFLAGS) $(ASM_SRCS) -o $(BUILD_DIR)/
 $(BUILD_DIR)/%.o: %.s
-	#$(MWAS) $(MWASFLAGS) -I$(dir $<) $(DEPFLAGS) -o $@ $<
 	$(MWAS) $(MWASFLAGS) $< -o $@
-#$(MWLD) $(MWLDFLAGS) $(LIBS) -o $(BACK_REL)/$(NEF) $(LCF:$(BUILD_DIR)/%=%) @$(RESPONSE:$(BUILD_DIR)/%=%) $(CRT0_OBJ)
 $(LCF): $(LSF) $(LCF_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
 $(RESPONSE): $(LSF) $(RESPONSE_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $< $(RESPONSE_TEMPLATE) $@
 $(NEF): $(LCF) $(RESPONSE) $(ALL_OBJS)
 	cd $(BUILD_DIR) && ../../$(MWLD) $(MWLDFLAGS) -o main.nef $(LCF:$(BUILD_DIR)/%=%) @$(RESPONSE:$(BUILD_DIR)/%=%) $(CRT0_OBJ) $(SYSCALL_OBJ)
-	#$(MWLD) $(MWLDFLAGS) -o main.nef $(LCF) @$(RESPONSE) $(CRT0_OBJ)
