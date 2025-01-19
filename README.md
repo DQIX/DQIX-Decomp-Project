@@ -1,31 +1,74 @@
-# DQIX Decomp Project
-## About
-This project aims to create a 1:1 disassembly/decompilation of Dragon Quest IX for the Nintendo DS. Currently it aims for the USA version of the game to be 1:1 recompilable.
-## Setup
-### Make
-If you're on windows, you can install make by installing either MSYS2 on its own, or if you're fond of homebrew, it will also come with a DevkitPro installation.
+# Dragon Quest IX: Sentinels of the Starry Skies Decompilation Project
 
-TODO: other OSes?
-### Compiler
-Download the compiler [mwccarm.zip](http://decomp.aetias.com/files/mwccarm.zip) and extract the contents to a folder named "tools" in the root directory of the project.
-### ROM Setup
-TODO: makefile currently only produces executable, not rom
-### Once everythings in place
-Open the command line in the root folder for the repository and enter the command "make". This should begin compilation.
-## Contributing
-### Submitting
-To contribute, make a fork of the repository on your github account and make changes there. Once you're ready, submit a pull request to be reviewed.
+## 📖 About
+This project aims to create a **1:1 disassembly and decompilation** of *Dragon Quest IX: Sentinels of the Starry Skies* for the Nintendo DS.  
+The primary focus is on the USA version of the game, with the goal of making it fully recompilable.
 
-Please ensure decompiled code you submit produces the same matching binary as the release game.
+---
 
-TODO: incorporate a hashing mechanism to ensure this
+## ⚙️ Setup
 
-TODO: binary doesn't currently match to begin with until .bss is fixed
-### What's there to do
-Current goal: fixing .bss sections in the disassembly. At the end of main.s is many labels that belong in a .bss section, either of main.s or the various overlay files. Try and match these labels with their correct position in memory.
-### Useful info
-Ghidra with the NTRGhidra plugin is invaluable for reverse engineering DS games and code. Ghidra available [here.](https://github.com/NationalSecurityAgency/ghidra/releases) Plugin available [here.](https://github.com/pedro-javierf/NTRGhidra/releases)
+### 🛠️ Prerequisites
+#### Installing `make`
+- **Windows**:  
+  - Install `make` by using [MSYS2](https://www.msys2.org/).
+  - Alternatively, if you use Homebrew, it comes bundled with DevkitPro installation.
+- **Other OSes**: *(TODO: Add instructions for macOS/Linux)*
 
-Desmume is an emulator with some nice debugging features, to assist in seeing what code is doing. Recommended nightly builds [here](https://desmume.org/download/)
+#### Compiler
+- Download the compiler [**mwccarm.zip**](http://decomp.aetias.com/files/mwccarm.zip).
+- Extract its contents to a folder named `tools` in the root directory of the project.
 
-No$GBA is another emulator that's popular for debugging, but is much more obscure in how to use its features. Be prepared to look up how to do things in it. Get it [here](https://problemkaputt.de/gba.htm)
+#### ROM Setup
+*(TODO: The `Makefile` currently only produces the executable, not the ROM)*
+
+---
+
+### 🚀 Building the Project
+Once everything is set up:
+1. Open the command line in the root folder of the repository.
+2. Run the following command:
+   ```bash
+   make
+   ```
+This will initiate the compilation process.
+
+---
+
+## 🤝 Contributing
+
+### 📤 Submitting Contributions
+
+> ⚠️ **Important:** Ensure the decompiled code you submit produces the **same binary** as the original release game.  
+*(TODO: Implement a hashing mechanism to verify this.)*
+
+#### Known Issue
+- The binary currently doesn't match the original game due to unresolved issues with `.bss` sections. *(Help fix this!)*
+
+---
+
+### 🧑‍💻 Current Goals
+The immediate objective is to **fix the `.bss` sections** in the disassembly:
+- At the end of `main.s`, there are numerous labels meant for a `.bss` section.
+- These labels need to be matched with their correct memory positions, either in `main.s` or the relevant overlay files.
+
+---
+
+### 🔧 Useful Tools
+1. **Ghidra** (with the NTRGhidra plugin):  
+   - A powerful reverse engineering tool for DS games and code.  
+   - [Download Ghidra](https://github.com/NationalSecurityAgency/ghidra/releases)  
+   - [Get NTRGhidra Plugin](https://github.com/pedro-javierf/NTRGhidra/releases)
+   
+2. **Desmume**:  
+   - A DS emulator with excellent debugging features.  
+   - [Download nightly builds](https://desmume.org/download/)
+
+3. **No$GBA**:  
+   - Another popular DS emulator for debugging, though less user-friendly.  
+   - [Download No$GBA](https://problemkaputt.de/gba.htm)
+
+---
+
+### ✨ Notes
+This project is a work in progress. Community contributions and feedback are welcome to help improve accuracy and functionality!
