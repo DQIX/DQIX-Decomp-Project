@@ -7,7 +7,7 @@ If you're on windows, you can install make by installing either MSYS2 on its own
 
 TODO: other OSes?
 ### Compiler
-Download the compiler here [mwccarm.zip](http://decomp.aetias.com/files/mwccarm.zip) and extract the contents to a folder named "tools" in the root directory of the project.
+Download the compiler [mwccarm.zip](http://decomp.aetias.com/files/mwccarm.zip) and extract the contents to a folder named "tools" in the root directory of the project.
 ### ROM Setup
 TODO: makefile currently only produces executable, not rom
 ### Once everythings in place
