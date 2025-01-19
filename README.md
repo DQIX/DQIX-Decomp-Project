@@ -12,8 +12,32 @@ The primary focus is on the USA version of the game, with the goal of making it 
 #### Installing `make`
 - **Windows**:  
   - Install `make` by using [MSYS2](https://www.msys2.org/).
-  - Alternatively, if you use Homebrew, it comes bundled with DevkitPro installation.
-- **Other OSes**: *(TODO: Add instructions for macOS/Linux)*
+  - Alternatively, if you develop Homebrew applications, it comes bundled with DevkitPro installation.
+ 
+- **macOS**:  
+  - Install Xcode Command Line Tools, which include `make`:
+    ```bash
+    xcode-select --install
+    ```
+  - Alternatively, if you use Homebrew:
+    ```bash
+    brew install make
+    ```
+
+- **Linux**:
+  - `make` is usually pre-installed. If not, install it using your package manager:
+    - Debian/Ubuntu-based systems:
+      ```bash
+      sudo apt update && sudo apt install make
+      ```
+    - Red Hat-based systems (Fedora, CentOS):
+      ```bash
+      sudo dnf install make
+      ```
+    - Arch-based systems:
+      ```bash
+      sudo pacman -S make
+      ```
 
 #### Compiler
 - Download the compiler [**mwccarm.zip**](http://decomp.aetias.com/files/mwccarm.zip).
