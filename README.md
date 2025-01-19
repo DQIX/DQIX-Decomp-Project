@@ -39,7 +39,8 @@ This will initiate the compilation process.
 
 ### 📤 Submitting Contributions
 
-> ⚠️ **Important:** Ensure the decompiled code you submit produces the **same binary** as the original release game.  
+> [!Important]
+> Ensure the decompiled code you submit produces the **same binary** as the original release game.  
 *(TODO: Implement a hashing mechanism to verify this.)*
 
 #### Known Issue
