@@ -24,7 +24,7 @@ TODO: binary doesn't currently match to begin with until .bss is fixed
 ### What's there to do
 Current goal: fixing .bss sections in the disassembly. At the end of main.s is many labels that belong in a .bss section, either of main.s or the various overlay files. Try and match these labels with their correct position in memory.
 ### Useful info
-Ghidra with the NTRGhidra plugin is invaluable for reverse engineering DS games and code. Available [here](https://github.com/pedro-javierf/NTRGhidra/releases)
+Ghidra with the NTRGhidra plugin is invaluable for reverse engineering DS games and code. Ghidra available [here.](https://github.com/NationalSecurityAgency/ghidra/releases) Plugin available [here.](https://github.com/pedro-javierf/NTRGhidra/releases)
 
 Desmume is an emulator with some nice debugging features, to assist in seeing what code is doing. Recommended nightly builds [here](https://desmume.org/download/)
 
