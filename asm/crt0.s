@@ -1,0 +1,576 @@
+.include "globallabels.inc"
+.text
+.arm
+_start:
+mov r12,#0x4000000
+str r12,[r12,#0x208]
+_02000808:
+ldrh r0,[r12,#0x6]
+cmp r0,#0x0
+bne _02000808
+bl _02000AB0
+mov r0,#0x13
+msr cpsr_c,r0
+ldr r0,_02000930
+add r0,r0,#0x3fc0
+mov sp,r0
+mov r0,#0x12
+msr cpsr_c,r0
+ldr r0,_02000930
+add r0,r0,#0x3fc0
+sub r0,r0,#0x40
+sub sp,r0,#0x4
+tst sp,#0x4
+beq _02000850
+b _02000854
+_02000850:
+sub sp,sp,#0x4
+_02000854:
+ldr r1,_02000934
+sub r1,r0,r1
+mov r0,#0x1f
+msr cpsr_cxsf,r0
+sub sp,r1,#0x4
+mov r0,#0x0
+ldr r1,_02000930
+mov r2,#0x4000
+bl _02000954
+mov r0,#0x0
+ldr r1,_02000938
+mov r2,#0x400
+bl _02000954
+mov r0,#0x200
+ldr r1,_0200093C
+mov r2,#0x400
+bl _02000954
+ldr r1,_02000940
+ldr r0,[r1,#0x14]
+bl _02000970
+bl _02000A1C
+ldr r0,_02000940
+ldr r1,[r0,#0xc]
+ldr r2,[r0,#0x10]
+mov r3,r1
+mov r0,#0x0
+_020008BC:
+cmp r1,r2
+bcc _020008C8
+b _020008CC
+_020008C8:
+str r0,[r1],#0x4
+_020008CC:
+bcc _020008BC
+bic r1,r3,#0x1f
+_020008D4:
+mcr p15,0x0,r0,cr7,cr10,0x4
+mcr p15,0x0,r1,cr7,cr5,0x1
+mcr p15,0x0,r1,cr7,cr14,0x1
+add r1,r1,#0x20
+cmp r1,r2
+blt _020008D4
+ldr r1,_02000944
+str r0,[r1,#0x0]
+ldr r1,_02000930
+add r1,r1,#0x3fc0
+add r1,r1,#0x3c
+ldr r0,_02000948
+str r0,[r1,#0x0]
+bl _0200D890
+bl _02000B98
+bl _0200EDC8
+ldr r1,_0200094C
+ldr lr,_02000950
+tst sp,#0x4
+bne _02000928
+b _0200092C
+_02000928:
+sub sp,sp,#0x4
+_0200092C:
+bx r1
+_02000930:
+.long _027E0000
+_02000934:
+.byte 0x00
+.byte 0x04
+.byte 0x00
+.byte 0x00
+_02000938:
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x05
+_0200093C:
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x07
+_02000940:
+.long _start_ModuleParams
+_02000944:
+.long _027FFF9C
+_02000948:
+.long _01FF8000
+_0200094C:
+.long NitroMain
+_02000950:
+.byte 0x00
+.byte 0x00
+.byte 0xFF
+.byte 0xFF
+_02000954:
+add r12,r1,r2
+_02000958:
+cmp r1,r12
+blt _02000964
+b _02000968
+_02000964:
+stmia r1!,{r0}
+_02000968:
+blt _02000958
+bx lr
+_02000970:
+cmp r0,#0x0
+beq _02000A18
+stmdb sp!,{r4,r5,r6,r7}
+ldmdb r0,{r1,r2}
+add r2,r0,r2
+sub r3,r0,r1,lsr #0x18
+bic r1,r1,#0xff000000
+sub r1,r0,r1
+mov r4,r2
+_02000994:
+cmp r3,r1
+ble _020009F4
+ldrb r5,[r3,#-0x1]!
+mov r6,#0x8
+_020009A4:
+subs r6,r6,#0x1
+blt _02000994
+tst r5,#0x80
+bne _020009C0
+ldrb r0,[r3,#-0x1]!
+strb r0,[r2,#-0x1]!
+b _020009E8
+_020009C0:
+ldrb r12,[r3,#-0x1]!
+ldrb r7,[r3,#-0x1]!
+orr r7,r7,r12,lsl #0x8
+bic r7,r7,#0xf000
+add r7,r7,#0x2
+add r12,r12,#0x20
+_020009D8:
+ldrb r0,[r2,r7]
+strb r0,[r2,#-0x1]!
+subs r12,r12,#0x10
+bge _020009D8
+_020009E8:
+cmp r3,r1
+mov r5,r5,lsl #0x1
+bgt _020009A4
+_020009F4:
+mov r0,#0x0
+bic r3,r1,#0x1f
+_020009FC:
+mcr p15,0x0,r0,cr7,cr10,0x4
+mcr p15,0x0,r3,cr7,cr5,0x1
+mcr p15,0x0,r3,cr7,cr14,0x1
+add r3,r3,#0x20
+cmp r3,r4
+blt _020009FC
+ldmia sp!,{r4,r5,r6,r7}
+_02000A18:
+bx lr
+_02000A1C:
+ldr r0,_02000AA8
+ldr r1,[r0,#0x0]
+ldr r2,[r0,#0x4]
+ldr r3,[r0,#0x8]
+_02000A2C:
+cmp r1,r2
+beq _02000AA4
+ldr r5,[r1],#0x4
+ldr r7,[r1],#0x4
+add r6,r5,r7
+mov r4,r5
+_02000A44:
+cmp r4,r6
+bmi _02000A50
+b _02000A54
+_02000A50:
+ldr r7,[r3],#0x4
+_02000A54:
+bmi _02000A5C
+b _02000A60
+_02000A5C:
+str r7,[r4],#0x4
+_02000A60:
+bmi _02000A44
+ldr r7,[r1],#0x4
+add r6,r4,r7
+mov r7,#0x0
+_02000A70:
+cmp r4,r6
+bcc _02000A7C
+b _02000A80
+_02000A7C:
+str r7,[r4],#0x4
+_02000A80:
+bcc _02000A70
+bic r4,r5,#0x1f
+_02000A88:
+mcr p15,0x0,r7,cr7,cr10,0x4
+mcr p15,0x0,r4,cr7,cr5,0x1
+mcr p15,0x0,r4,cr7,cr14,0x1
+add r4,r4,#0x20
+cmp r4,r6
+blt _02000A88
+b _02000A2C
+_02000AA4:
+b _start_AutoloadDoneCallback
+_02000AA8:
+.long _start_ModuleParams
+_start_AutoloadDoneCallback: ; 02000AAC
+bx lr
+_02000AB0:
+mrc p15,0x0,r0,cr1,cr0,0x0
+ldr r1,_02000B68
+bic r0,r0,r1
+mcr p15,0x0,r0,cr1,cr0,0x0
+mov r0,#0x0
+mcr p15,0x0,r0,cr7,cr5,0x0
+mcr p15,0x0,r0,cr7,cr6,0x0
+mcr p15,0x0,r0,cr7,cr10,0x4
+ldr r0,_02000B6C
+mcr p15,0x0,r0,cr6,cr0,0x0
+ldr r0,_02000B70
+mcr p15,0x0,r0,cr6,cr1,0x0
+ldr r0,_02000B74
+mcr p15,0x0,r0,cr6,cr2,0x0
+ldr r0,_02000B78
+mcr p15,0x0,r0,cr6,cr3,0x0
+ldr r0,_02000B7C
+orr r0,r0,#0x1a
+orr r0,r0,#0x1
+mcr p15,0x0,r0,cr6,cr4,0x0
+ldr r0,_02000B80
+mcr p15,0x0,r0,cr6,cr5,0x0
+ldr r0,_02000B84
+mcr p15,0x0,r0,cr6,cr6,0x0
+ldr r0,_02000B88
+mcr p15,0x0,r0,cr6,cr7,0x0
+mov r0,#0x20
+mcr p15,0x0,r0,cr9,cr1,0x1
+ldr r0,_02000B7C
+orr r0,r0,#0xa
+mcr p15,0x0,r0,cr9,cr1,0x0
+mov r0,#0x42
+mcr p15,0x0,r0,cr2,cr0,0x1
+mov r0,#0x42
+mcr p15,0x0,r0,cr2,cr0,0x0
+mov r0,#0x2
+mcr p15,0x0,r0,cr3,cr0,0x0
+ldr r0,_02000B8C
+mcr p15,0x0,r0,cr5,cr0,0x3
+ldr r0,_02000B90
+mcr p15,0x0,r0,cr5,cr0,0x2
+mrc p15,0x0,r0,cr1,cr0,0x0
+ldr r1,_02000B94
+orr r0,r0,r1
+mcr p15,0x0,r0,cr1,cr0,0x0
+bx lr
+_02000B68:
+.byte 0x05
+.byte 0x90
+.byte 0x0F
+.byte 0x00
+_02000B6C:
+.byte 0x33
+.byte 0x00
+.byte 0x00
+.byte 0x04
+_02000B70:
+.long _0200002D
+_02000B74:
+.long _027E0021
+_02000B78:
+.byte 0x35
+.byte 0x00
+.byte 0x00
+.byte 0x08
+_02000B7C:
+.long _027E0000
+_02000B80:
+.byte 0x2F
+.byte 0x00
+.byte 0x00
+.byte 0x01
+_02000B84:
+.byte 0x1D
+.byte 0x00
+.byte 0xFF
+.byte 0xFF
+_02000B88:
+.long _027FF017
+_02000B8C:
+.byte 0x11
+.byte 0x00
+.byte 0x10
+.byte 0x05
+_02000B90:
+.byte 0x11
+.byte 0x10
+.byte 0x11
+.byte 0x15
+_02000B94:
+.byte 0x7D
+.byte 0x70
+.byte 0x05
+.byte 0x00
+_02000B98:
+bx lr
+_02000B9C:
+bx lr
+_start_ModuleParams:
+.long _020F4600 ; autoload list
+.long _020F4618 ; autoload list end
+.long _020F2E60 ; autoload start
+.long _020F2E60 ; static bss start
+.long ovl2_021536E0 ; static bss end (curious that this got determined to be in ovl 12)
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x39
+.byte 0x75
+.byte 0x02
+.byte 0x04
+.byte 0x21
+.byte 0x06
+.byte 0xC0
+.byte 0xDE
+.byte 0xDE
+.byte 0xC0
+.byte 0x06
+.byte 0x21
+_02000BC4:
+.byte 0x5B
+.byte 0x53
+.byte 0x44
+.byte 0x4B
+.byte 0x2B
+.byte 0x4E
+.byte 0x49
+.byte 0x4E
+.byte 0x54
+.byte 0x45
+.byte 0x4E
+.byte 0x44
+.byte 0x4F
+.byte 0x3A
+.byte 0x42
+.byte 0x41
+.byte 0x43
+.byte 0x4B
+.byte 0x55
+.byte 0x50
+.byte 0x5D
+.byte 0x00
+.byte 0x00
+.byte 0x00
+_02000BDC:
+.byte 0x5B
+.byte 0x53
+.byte 0x44
+.byte 0x4B
+.byte 0x2B
+.byte 0x41
+.byte 0x63
+.byte 0x74
+.byte 0x69
+.byte 0x6D
+.byte 0x61
+.byte 0x67
+.byte 0x69
+.byte 0x6E
+.byte 0x65
+.byte 0x3A
+.byte 0x4D
+.byte 0x6F
+.byte 0x62
+.byte 0x69
+.byte 0x63
+.byte 0x6C
+.byte 0x69
+.byte 0x70
+.byte 0x20
+.byte 0x53
+.byte 0x44
+.byte 0x4B
+.byte 0x20
+.byte 0x56
+.byte 0x31
+.byte 0x2E
+.byte 0x30
+.byte 0x2E
+.byte 0x33
+.byte 0x5D
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+_02000C04:
+.byte 0x5B
+.byte 0x53
+.byte 0x44
+.byte 0x4B
+.byte 0x2B
+.byte 0x55
+.byte 0x42
+.byte 0x49
+.byte 0x51
+.byte 0x55
+.byte 0x49
+.byte 0x54
+.byte 0x4F
+.byte 0x55
+.byte 0x53
+.byte 0x3A
+.byte 0x43
+.byte 0x50
+.byte 0x53
+.byte 0x5D
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+_02000C1C:
+.byte 0x5B
+.byte 0x53
+.byte 0x44
+.byte 0x4B
+.byte 0x2B
+.byte 0x4E
+.byte 0x49
+.byte 0x4E
+.byte 0x54
+.byte 0x45
+.byte 0x4E
+.byte 0x44
+.byte 0x4F
+.byte 0x3A
+.byte 0x57
+.byte 0x69
+.byte 0x46
+.byte 0x69
+.byte 0x32
+.byte 0x2E
+.byte 0x31
+.byte 0x2E
+.byte 0x33
+.byte 0x30
+.byte 0x30
+.byte 0x30
+.byte 0x33
+.byte 0x2E
+.byte 0x30
+.byte 0x37
+.byte 0x30
+.byte 0x39
+.byte 0x32
+.byte 0x30
+.byte 0x30
+.byte 0x32
+.byte 0x32
+.byte 0x39
+.byte 0x5D
+.byte 0x00
+_02000C44:
+.byte 0x5B
+.byte 0x53
+.byte 0x44
+.byte 0x4B
+.byte 0x2B
+.byte 0x55
+.byte 0x42
+.byte 0x49
+.byte 0x51
+.byte 0x55
+.byte 0x49
+.byte 0x54
+.byte 0x4F
+.byte 0x55
+.byte 0x53
+.byte 0x3A
+.byte 0x53
+.byte 0x53
+.byte 0x4C
+.byte 0x5D
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+_02000C5C:
+.byte 0x5B
+.byte 0x53
+.byte 0x44
+.byte 0x4B
+.byte 0x2B
+.byte 0x4E
+.byte 0x49
+.byte 0x4E
+.byte 0x54
+.byte 0x45
+.byte 0x4E
+.byte 0x44
+.byte 0x4F
+.byte 0x3A
+.byte 0x44
+.byte 0x57
+.byte 0x43
+.byte 0x2D
+.byte 0x44
+.byte 0x4C
+.byte 0x33
+.byte 0x2E
+.byte 0x31
+.byte 0x2E
+.byte 0x33
+.byte 0x30
+.byte 0x30
+.byte 0x30
+.byte 0x36
+.byte 0x2E
+.byte 0x32
+.byte 0x30
+.byte 0x30
+.byte 0x39
+.byte 0x30
+.byte 0x31
+.byte 0x33
+.byte 0x31
+.byte 0x2E
+.byte 0x32
+.byte 0x32
+.byte 0x33
+.byte 0x35
+.byte 0x5F
+.byte 0x44
+.byte 0x57
+.byte 0x43
+.byte 0x2D
+.byte 0x44
+.byte 0x4C
+.byte 0x5F
+.byte 0x33
+.byte 0x5F
+.byte 0x31
+.byte 0x5F
+.byte 0x50
+.byte 0x4C
+.byte 0x55
+.byte 0x53
+.byte 0x36
+.byte 0x5D
+.byte 0x00
+.byte 0x00
+.byte 0x00

@@ -1,0 +1,77 @@
+.include "globallabels.inc"
+.data
+_027E0000:
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C6A94
+.long _020C6AA4
+.long _020C6AB4
+.long _020C6AC4
+.long _020C69C8
+.long _020C6A54
+_027E0021:
+.long _020C6A64
+.long _020C6A74
+.long _020C6A84
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.long _020C69C8
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.byte 0x00
+.bss
+_027E0060:
+.space 0x20
+_027E0080:
+; inaccurate bss?? some of these may be mirrors, too. have to account for that
+_027E3000:
+_027E3F80:
+_027FF000:
+_027FF017:
+_027FF680:
+_027FFC00:
+_027FFC10:
+_027FFC20:
+_027FFC2C:
+_027FFC30:
+_027FFC3C:
+_027FFC40:
+_027FFC80:
+_027FFCF4:
+_027FFCFA:
+_027FFD80:
+_027FFD9C:
+_027FFDE8:
+_027FFDEA:
+_027FFDEC:
+_027FFE00:
+_027FFE0C:
+_027FFE10:
+_027FFE20:
+_027FFE50:
+_027FFE60:
+_027FFF80:
+_027FFF96:
+_027FFF98:
+_027FFF9B:
+_027FFF9C:
+_027FFFA0:
+_027FFFA8:
+_027FFFAA:
+_027FFFB0:
+_027FFFE0:
+_027FFFE8:
+_027FFFF0:
