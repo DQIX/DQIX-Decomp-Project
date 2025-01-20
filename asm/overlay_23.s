@@ -35183,7 +35183,7 @@ bl ovl10_021845F8
 mov r5,r0
 ldrh r1,[r8,#0xa]
 mov r0,r4
-bl _0218466C
+bl ovl11_0218466C
 mov r4,r0
 cmp r5,#0x0
 cmpne r4,#0x0
@@ -38981,7 +38981,7 @@ bl ovl10_021845F8
 mov r4,r0
 ldrh r1,[r8,#0xa]
 mov r0,r5
-bl _0218466C
+bl ovl11_0218466C
 cmp r4,#0x0
 cmpne r0,#0x0
 beq ovl23_021FA758
@@ -42166,7 +42166,7 @@ bl ovl10_021845F8
 mov r5,r0
 ldrh r1,[r8,#0xa]
 mov r0,r4
-bl _0218466C
+bl ovl11_0218466C
 mov r4,r0
 cmp r5,#0x0
 cmpne r4,#0x0

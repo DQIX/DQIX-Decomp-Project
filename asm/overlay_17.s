@@ -44855,22 +44855,12 @@ ldmia sp!,{r3,pc}
 .byte 0xFF
 .byte 0x2F
 .byte 0xE1
-.byte 0x04
-.byte 0x00
-.byte 0x9F
-.byte 0xE5
-.byte 0x04
-.byte 0x00
-.byte 0x90
-.byte 0xE5
-.byte 0x1E
-.byte 0xFF
-.byte 0x2F
-.byte 0xE1
-.byte 0xF0
-.byte 0x83
-.byte 0x1D
-.byte 0x02
+ovl17_021B2164:
+ldr r0,ovl17_021B2170
+ldr r0,[r0,#0x4]
+bx lr
+ovl17_021B2170:
+.long _021D83F0
 ovl17_021B2174:
 stmdb sp!,{r4,lr}
 mov r4,r0

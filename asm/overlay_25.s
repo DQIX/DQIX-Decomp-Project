@@ -2547,7 +2547,7 @@ str r1,[r11,#0x28]
 bl ovl0_0217616C
 ldrb r1,[r5,#0x1d]
 mov r0,r11
-bl _0216FF20
+bl ovl0_0216FF20
 ldrb r0,[r5,#0x1e]
 strb r0,[r11,#0x2f]
 ovl25_021DAEC4:
@@ -2819,7 +2819,7 @@ mov r7,r0
 cmp r1,#0x0
 bne ovl25_021DB310
 add r0,r10,#0xa40
-bl _0216FD38
+bl ovl0_0216FD38
 ldrb r0,[r10,#0xae0]
 cmp r0,#0x0
 ldmeqia sp!,{r3,r4,r5,r6,r7,r8,r9,r10,r11,pc}
@@ -2839,7 +2839,7 @@ cmp r0,#0x1
 bne ovl25_021DB280
 ldr r1,ovl25_021DB44C
 add r0,r10,#0xa40
-bl _0216FCFC
+bl ovl0_0216FCFC
 mov r5,r0
 b ovl25_021DB2A0
 ovl25_021DB280:
@@ -2849,7 +2849,7 @@ cmp r0,#0x2
 bne ovl25_021DB2A0
 ldr r1,ovl25_021DB450
 add r0,r10,#0xa40
-bl _0216FCFC
+bl ovl0_0216FCFC
 mov r5,r0
 ovl25_021DB2A0:
 cmp r6,#0x0
@@ -3339,17 +3339,17 @@ str r0,[sp,#0x4]
 cmp r0,#0x0
 beq ovl25_021DBA34
 mov r1,#0xc
-bl _02169B04
+bl ovl0_02169B04
 mov r9,r0
 mov r0,#0x1
 str r0,[sp,#0x24]
 ldr r0,[sp,#0x4]
 mov r1,#0x3d
-bl _02169B04
+bl ovl0_02169B04
 str r0,[sp,#0x34]
 ldr r0,[sp,#0x4]
 mov r1,#0x7
-bl _02169B04
+bl ovl0_02169B04
 str r0,[sp,#0x20]
 cmp r9,#0x0
 beq ovl25_021DB9E8
@@ -3382,13 +3382,13 @@ movne r8,#0x1
 bne ovl25_021DBA34
 ldr r0,[sp,#0x4]
 mov r1,#0x20
-bl _02169B04
+bl ovl0_02169B04
 cmp r0,#0x0
 movne r8,#0x1
 bne ovl25_021DBA34
 ldr r0,[sp,#0x4]
 mov r1,#0x22
-bl _02169B04
+bl ovl0_02169B04
 cmp r0,#0x0
 movne r8,#0x1
 ovl25_021DBA34:
@@ -12708,7 +12708,7 @@ mov r9,r0
 mov r10,r1
 bl ovl0_02160130
 mov r11,r0
-bl _02160F14
+bl ovl0_02160F14
 ldr r1,ovl25_021E40B4
 mov r4,r0
 mov r0,r10
@@ -13977,7 +13977,7 @@ add r3,sp,#0x0
 ldmia r4,{r0,r1,r2}
 stmia r3,{r0,r1,r2}
 mov r0,r5
-bl _02160F14
+bl ovl0_02160F14
 mov r4,r0
 mov r0,r6
 mov r1,r4
@@ -14612,7 +14612,7 @@ ovl25_021E5750:
 cmp r0,#0x2
 bne ovl25_021E5840
 bl ovl0_02160130
-bl _02160F14
+bl ovl0_02160F14
 ldr r7,ovl25_021E58A4
 ldr r10,ovl25_021E58A8
 ldr r6,ovl25_021E58AC
@@ -15348,7 +15348,7 @@ blt ovl25_021E609C
 mov r0,r8
 bl ovl0_021677FC
 mov r0,r8
-bl _02160F14
+bl ovl0_02160F14
 mov r5,r0
 bl _0200F398
 mov r10,r0
@@ -17382,7 +17382,7 @@ bl ovl0_021677FC
 mov r0,r8
 bl ovl0_02167E6C
 mov r0,r8
-bl _02160F14
+bl ovl0_02160F14
 add r0,r0,#0x240
 add r3,sp,#0x2c
 ldmia r0,{r0,r1,r2}
@@ -17966,7 +17966,7 @@ bl ovl0_02160130
 cmp r0,#0x0
 moveq r0,#0x1
 ldmeqia sp!,{r4,pc}
-bl _02160F14
+bl ovl0_02160F14
 cmp r0,#0x0
 moveq r0,#0x1
 ldmeqia sp!,{r4,pc}
@@ -17997,7 +17997,7 @@ ovl25_021E8584:
 stmdb sp!,{r4,lr}
 mov r4,r0
 bl ovl0_02160130
-bl _02160F14
+bl ovl0_02160F14
 ldrsh r1,[r4,#0x8]
 ldrh r2,[r4,#0xa]
 bl _0202E95C
@@ -18501,7 +18501,7 @@ bl _02057F00
 b ovl25_021E8CCC
 ovl25_021E8C90:
 bl ovl0_02160130
-bl _02160F14
+bl ovl0_02160F14
 mov r1,r0
 mov r0,r4
 bl _020100C4
@@ -19308,7 +19308,7 @@ bl _0200F398
 mov r4,r0
 bl ovl0_02160130
 mov r7,r0
-bl _02160F00
+bl ovl0_02160F00
 mov r8,r0
 mov r0,r7
 bl ovl0_02160F20
@@ -19474,7 +19474,7 @@ ldr r1,ovl25_021E9A8C
 add r0,sp,#0x0
 bl _02003F28
 mov r0,r7
-bl _02160F14
+bl ovl0_02160F14
 ldr r1,ovl25_021E9A90
 mov r2,#0x3e8
 bl _0202EA10
@@ -19608,13 +19608,13 @@ ldr r0,[r10,#0x0]
 cmp r0,#0x0
 beq ovl25_021E9BD0
 mov r1,#0x69
-bl _02169B04
+bl ovl0_02169B04
 cmp r0,#0x0
 bne ovl25_021E9BEC
 ovl25_021E9BD0:
 ldr r0,[r10,#0x0]
 mov r1,#0x89
-bl _02169B04
+bl ovl0_02169B04
 cmp r0,#0x0
 bne ovl25_021E9BEC
 mov r0,r10
@@ -19966,7 +19966,7 @@ cmp r0,#0x0
 beq ovl25_021EA460
 add r0,r10,#0x398
 add r0,r0,#0x400
-bl _0216FD38
+bl ovl0_0216FD38
 cmp r0,#0x0
 beq ovl25_021EA460
 bl ovl0_02160130
@@ -20047,7 +20047,7 @@ b ovl25_021EA220
 ovl25_021EA1F8:
 mov r0,r8
 mov r1,r9
-bl _0215FE2C
+bl ovl0_0215FE2C
 cmp r0,#0x0
 beq ovl25_021EA21C
 ldrsh r1,[r0,#0x0]
@@ -20191,7 +20191,7 @@ b ovl25_021EA40C
 ovl25_021EA3E4:
 mov r0,r11
 mov r1,r9
-bl _0215FE2C
+bl ovl0_0215FE2C
 cmp r0,#0x0
 beq ovl25_021EA408
 ldrsh r1,[r0,#0x0]
@@ -21675,7 +21675,7 @@ bl ovl17_0218B5B0
 mov r8,r0
 bl ovl0_02160130
 mov r7,r0
-bl _02160F14
+bl ovl0_02160F14
 mov r5,r0
 mov r0,r7
 bl ovl0_02160F20
@@ -21790,7 +21790,7 @@ str r10,[r4,#0x28]
 bl ovl0_0217616C
 mov r0,r4
 ldrb r1,[r5,#0x1d]
-bl _0216FF20
+bl ovl0_0216FF20
 ldrb r0,[r5,#0x1e]
 strb r0,[r4,#0x2f]
 ovl25_021EB9E4:
@@ -22333,7 +22333,7 @@ ovl25_021EC190:
 cmp r6,#0x0
 blt ovl25_021EC220
 mov r0,r4
-bl _02160F14
+bl ovl0_02160F14
 ldr r2,ovl25_021ECB80
 mov r1,r6
 str r2,[sp,#0x0]
@@ -22366,7 +22366,7 @@ bl _02039E70
 bl _0203A588
 add r0,r4,#0x3fc
 add r0,r0,#0x6c00
-bl _02182A44
+bl ovl0_02182A44
 ovl25_021EC220:
 add r1,r9,#0x6
 ldrb r0,[r1,r8,lsl #0x6]
@@ -24621,7 +24621,7 @@ strb r7,[r4,#0x31]
 mov r1,r5,lsl #0x10
 ldr r0,[r10,#0x168]
 mov r1,r1,asr #0x10
-bl _0216FCFC
+bl ovl0_0216FCFC
 movs r6,r0
 beq ovl25_021EE3FC
 bl _02003F0C
