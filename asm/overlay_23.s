@@ -30873,7 +30873,7 @@ bl _020373F8
 mov r0,r4
 bl _02049F28
 mov r0,r10
-bl _02160F14
+bl ovl0_02160F14
 mov r1,#0x1
 mov r7,r0
 mov r2,r1
@@ -30980,7 +30980,7 @@ mov r0,r10
 add r1,r10,#0x5000
 mov r2,#0x0
 strb r2,[r1,#0x5be]
-bl _02160F14
+bl ovl0_02160F14
 mov r4,r0
 bl _0202ED64
 add r8,sp,#0x88

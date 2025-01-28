@@ -580,7 +580,7 @@ ldr r1,ovl25_021D9F10
 mov r0,r10
 mov r2,#0x258
 mov r3,#0x32
-bl _02163440
+bl ovl0_02163440
 ovl25_021D92A4:
 ldr r0,[sp,#0x104]
 ldrb r0,[r0,#0xfd8]
@@ -1564,7 +1564,7 @@ ldr r1,ovl25_021D9F10
 mov r0,r10
 mov r2,#0x258
 mov r3,#0x96
-bl _02163440
+bl ovl0_02163440
 mov r0,#0x1
 str r0,[sp,#0x98]
 mov r0,#0x1b
@@ -1673,7 +1673,7 @@ mov r0,r10
 ldr r1,ovl25_021D9F10
 mov r2,#0x2bc
 mov r3,#0x96
-bl _02163440
+bl ovl0_02163440
 ovl25_021DA20C:
 ldr r0,[sp,#0x20]
 cmp r0,#0x2
@@ -1886,7 +1886,7 @@ ldr r1,ovl25_021D9F10
 mov r0,r10
 mov r2,#0x3e8
 mov r3,#0x96
-bl _02163440
+bl ovl0_02163440
 b ovl25_021DA53C
 ovl25_021DA52C:
 ldr r0,[sp,#0x58]
@@ -2804,7 +2804,7 @@ add r0,r10,#0xa40
 mov r1,r1,asr #0x10
 bl ovl3_0216FDF8
 add r0,r10,#0xa40
-bl _0216FD0C
+bl ovl0_0216FD0C
 ovl25_021DB1F0:
 mov r0,r10
 mov r1,#0x1000000
@@ -5529,7 +5529,7 @@ ldr r1,ovl25_021DDF98
 mov r0,r10
 mov r2,#0x1f4
 mov r3,#0x64
-bl _02163440
+bl ovl0_02163440
 cmp r9,#0x0
 beq ovl25_021DD8DC
 ldr r0,ovl25_021DDF9C
@@ -6453,7 +6453,7 @@ mov r0,r10
 mov r1,#0xcc
 mov r2,#0xc8
 mov r3,#0x64
-bl _02163440
+bl ovl0_02163440
 ovl25_021DE568:
 ldr r0,ovl25_021DED3C
 mov r1,#0x43
@@ -17029,7 +17029,7 @@ blt ovl25_021E7828
 add r1,sp,#0x18
 mov r0,r6
 mov r2,#0x0
-bl _0216638C
+bl ovl0_0216638C
 add r0,sp,#0x18
 bl _020D961C
 add r0,sp,#0x18
@@ -17514,7 +17514,7 @@ mov r5,r0
 bl ovl0_02160130
 ldrh r1,[r7,#0xa]
 mov r6,r0
-bl _02162D88
+bl ovl0_02162D88
 movs r7,r0
 moveq r0,#0x1
 beq ovl25_021E7FAC
@@ -17755,7 +17755,7 @@ bl ovl0_02160130
 mov r1,r4
 mov r2,r5
 mov r3,r6
-bl _02163440
+bl ovl0_02163440
 mov r0,#0x1
 ldmia sp!,{r4,r5,r6,pc}
 ovl25_021E8248:
@@ -18962,7 +18962,7 @@ add r0,r0,#0x400
 bl _0216FE48
 add r0,r10,#0x398
 add r0,r0,#0x400
-bl _0216FD0C
+bl ovl0_0216FD0C
 mov r0,#0x0
 strb r0,[r10,#0x87c]
 sub r0,r0,#0x1
